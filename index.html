@@ -135,10 +135,11 @@
 
   /* Sections */
   section{padding:58px 0 14px}
-  /* First section of every non-home view sits under the sticky header when
-     showView scrolls to top:0 — give it room so its heading never touches
-     the header (the header is ~61px tall after the taller-nav change). */
-  section[data-view-group]:not([data-view-group="home"]){padding-top:92px}
+  /* Browse gigs is the only view whose heading sits in a .sec-head (no inner
+     top padding) — the other views use .view-head with 56px of its own, so
+     their headings clear the ~61px sticky header and gigs' doesn't. Give
+     gigs the same total: 58 + 56 = 114px above its heading. */
+  #gigs{padding-top:114px}
   .sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:34px;flex-wrap:wrap}
   .sec-head h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 12px;line-height:1.2}
   .sec-head p{margin:0;color:var(--muted);max-width:560px;font-size:15.5px}
